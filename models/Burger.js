@@ -24,6 +24,12 @@ class Burger extends Table {
     async menu() {
         return await this.dbReadAll('name')
     }
+    async throwUp() {
+        this.devoured = false
+        return await this.dbUpdate({
+            devoured: this.devoured
+        })
+    }
 }
 
 module.exports = Burger;

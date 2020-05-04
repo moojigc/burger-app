@@ -1,4 +1,4 @@
-const Connection = require('./Connection'),
+const Connection = require('../config/Connection'),
     CONFIG = process.env.PORT ?　process.env : require('../config.json').dev,
     connection = new Connection(CONFIG);
 
@@ -54,7 +54,7 @@ class Table {
         let db = await connection.dbConnect()
         return await this.dbAction(
             db,
-            db.query('DELETE FROM ?? WHERE ?', [values, this.table, {
+            db.query('DELETE FROM ?? WHERE ?', [this.table, {
                 id: this.id
             }])
         )
