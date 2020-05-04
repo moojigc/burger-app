@@ -28,13 +28,18 @@ router.post("/api/burgers", async (req, res) => {
 
 router.put("/api/burger/:id", async (req, res) => {
     let myBurger = new Burger({ id: req.params.id })
-
-    let result = await myBurger.devour()
-
+    let result;
+    if (req.body.devoured === true) {
+        result = await myBurger.devour()
+    } else {
+        result = await myBurger.throwUp()
+    }
+    console.log(myBurger);
+    console.log(result);
     if (result.changedRows === 0) {
         return res.status(404).end();
     } else {
-        res.status(200).end();
+        return res.status(200).end();
     }
 });
 
