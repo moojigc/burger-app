@@ -3,13 +3,14 @@ const express = require("express"),
     Burger = require("../models/Burger");
     
 router.get("/", async (req, res) => {
-    let myBurger = new Burger();
-    let data = await myBurger.menu();
-    let hbsObject = {
-        burgers: data
-    };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
+    let burgers = await new Burger().menu();
+    let fresh = burgers.filter(b => !b.devoured)
+    let devoured = burgers.filter(b => b.devoured)
+
+    res.render("index", {
+        freshBurgers: fresh,
+        devouredBurgers: devoured
+    });
 });
 
 router.get("/api/burgers", async (req, res) => {

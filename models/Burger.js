@@ -22,7 +22,7 @@ class Burger extends Table {
         })
     }
     async menu() {
-        return await this.dbReadAll('name')
+        return await this.dbReadAll(['id', 'name', 'devoured'])
     }
     async throwUp() {
         this.devoured = false
