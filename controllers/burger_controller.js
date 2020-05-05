@@ -46,11 +46,7 @@ router.put("/api/burger/:id", async (req, res) => {
     let myBurger = new Burger({ id: req.params.id })
     let result;
     try {
-        if (req.body.devoured === true) {
-            result = await myBurger.devour()
-        } else {
-            result = await myBurger.throwUp()
-        }
+        result = myBurger.dbUpdate({ devoured: req.body.devoured })
 
         if (result.changedRows === 0) {
             return res.status(404).end();

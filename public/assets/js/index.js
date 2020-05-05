@@ -11,11 +11,19 @@ async function post(data) {
         data: data
     })
 }
-async function update(data, id) {
+async function update(id, data) {
     return await $.ajax('/api/burger/' + id, {
         method: 'PUT',
-        data: data,
+        data: data
     })
+}
+async function updateHandler() {
+    let id = $(this).data('id')
+    if ($(this).text() === 'Devour!') 
+        await update(id, { devoured: 1 });
+    else 
+        await update(id, { devoured: 0 })
+    location.reload()
 }
 
 $submitBtn.on('click', async event => {
@@ -25,16 +33,9 @@ $submitBtn.on('click', async event => {
         name: $input.val()
     }
 
-    console.log($input.val())
-
-    let response = await post(data);
-    console.log(response)
+    await post(data);
     location.reload()
 })
-$devourBtns.on('click', async () => {
-    let data = {
-        'devoured': true
-    }
-    let res = await update(data, this.id);
-    console.log(res)
-})
+
+$devourBtns.on('click', updateHandler)
+$regurgitateBtns.on('click', updateHandler)

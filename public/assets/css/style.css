@@ -1,6 +1,6 @@
 :root {
     --bun: #ffe2aa;
-    --lettuce: #32c704;
+    --lettuce: #bbffa6;
     --meat: #450101;
     --tomato:#ec3521;
     font-size: 20px
@@ -13,7 +13,15 @@ body {
     font-family: 'Comic Neue', cursive;
 }
 
+.wrapper {
+    background: transparent;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem 0.1rem #0000005c;
+    padding: 1rem;
+}
+
 .jumbotron {
+    box-shadow: 0 0 0.5rem 0.1rem var(--lettuce);
     text-align: center;
     background-color: var(--lettuce);
     padding: 1rem;
@@ -27,7 +35,22 @@ header {
 }
 
 form {
-    margin-top: 1rem;
+    padding: 1rem;
+    background: #ffffffb5;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card {
+    box-shadow: 0 0.1rem 0.5rem 0.1rem #00000036;
+    background: var(--lettuce);
+    transition: 300ms;
+}
+.card:hover {
+    transform: scale(1.1) translateY(-1rem)
+}
+.card-header {
+    box-shadow: inset 0 -0.3rem 1rem 0.1rem #7bcd70;
 }
 
 .burger-svg {
@@ -36,6 +59,8 @@ form {
 }
 
 .burger-list-item {
+    color: black;
+    background: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;

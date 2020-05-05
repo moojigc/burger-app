@@ -15,20 +15,8 @@ class Burger extends Table {
             devoured: this.devoured
         })
     }
-    async devour() {
-        this.devoured = true;
-        return await this.dbUpdate({
-            devoured: this.devoured
-        })
-    }
     async menu() {
         return await this.dbReadAll(['id', 'name', 'devoured'])
-    }
-    async throwUp() {
-        this.devoured = false
-        return await this.dbUpdate({
-            devoured: this.devoured
-        })
     }
 }
 

@@ -1,13 +1,25 @@
 <div class="row">
+	<div class="col">
+		<form>
+			<div class="form-group">
+				<label for="name">Order up!</label>
+				<input type="text" class="form-control" placeholder="What kind of burger would you like?">
+			</div>
+			<button class="btn btn-primary submit-btn">Submit</button>
+		</form>
+	</div>
+</div>
+
+<div class="row">
 	<div class="col-lg-6">
 		<div class="card">
 			<div class="card-header">Fresh</div>
 			<div>
 				<ul class="list-group list-group-flush">
 					{{#each freshBurgers}}
-					<li data-id="{{id}}" class="list-group-item burger-list-item">
+					<li class="list-group-item burger-list-item">
 						{{name}}
-						<button class="btn btn-danger devour-btn">Devour!</button>
+						<button data-id="{{id}}" class="btn btn-danger devour-btn">Devour!</button>
 					</li>
 					{{/each}}
 				</ul>
@@ -20,9 +32,9 @@
 			<div>
 				<ul class="list-group list-group-flush">
 					{{#each devouredBurgers}}
-					<li data-id="{{id}}" class="list-group-item burger-list-item">
+					<li class="list-group-item burger-list-item">
 						{{name}}
-						<button class="btn btn-success regurgitate-btn">Regurgitate!</button>
+						<button data-id="{{id}}" class="btn btn-success regurgitate-btn">Regurgitate!</button>
 					</li>
 					{{/each}}
 				</ul>
@@ -30,15 +42,5 @@
 		</div>
 	</div>
 </div>
-<div class="row">
-	<div class="col">
-		<form>
-			<div class="form-group">
-				<label for="name">Order up!</label>
-				<input type="text" class="form-control" placeholder="What kind of burger would you like?">
-			</div>
-			<button class="btn btn-primary submit-btn">Submit</button>
-		</form>
-	</div>
-</div>
+
 <div class="row"></div>
