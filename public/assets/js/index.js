@@ -1,22 +1,40 @@
 const $submitBtn = $('.submit-btn'),
-		$input = $('textarea');
+    $input = $('input'),
+    $devourBtns = $('.devour-btn'),
+    $regurgitateBtns = $('.regurgitate-btn');
 
-	async function post() {
-        try {
-            return await $.ajax('/api/burgers/', {
-                method: 'POST',
-                data: $input.val()
-            })
-        } catch (error) {
-            console.error(error)
-        }
-	}
+$input.val('')
 
-	$submitBtn.on('click', async event => {
-        event.preventDefault()
-        if ($input.val("")) return;
+async function post(data) {
+    return await $.ajax('/api/burgers/', {
+        method: 'POST',
+        data: data
+    })
+}
+async function update(data, id) {
+    return await $.ajax('/api/burger/' + id, {
+        method: 'PUT',
+        data: data,
+    })
+}
 
-		let response = await post();
-		console.log(response)
-		location.reload()
-	})
+$submitBtn.on('click', async event => {
+    event.preventDefault()
+    if (!$input.val()) return;
+    let data = {
+        name: $input.val()
+    }
+
+    console.log($input.val())
+
+    let response = await post(data);
+    console.log(response)
+    location.reload()
+})
+$devourBtns.on('click', async () => {
+    let data = {
+        'devoured': true
+    }
+    let res = await update(data, this.id);
+    console.log(res)
+})

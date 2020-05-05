@@ -23,7 +23,6 @@
 					<li data-id="{{id}}" class="list-group-item burger-list-item">
 						{{name}}
 						<button class="btn btn-success regurgitate-btn">Regurgitate!</button>
-
 					</li>
 					{{/each}}
 				</ul>
@@ -33,12 +32,12 @@
 </div>
 <div class="row">
 	<div class="col">
-		<form action="/">
+		<form>
 			<div class="form-group">
-				<label for="burgers"></label>
-				<textarea name="name" class="form-control" rows="3"></textarea>
+				<label for="name">Order up!</label>
+				<input type="text" class="form-control" placeholder="What kind of burger would you like?">
 			</div>
-			<button class="btn btn-primary submit-btn" type="submit">Submit</button>
+			<button class="btn btn-primary submit-btn">Submit</button>
 		</form>
 	</div>
 </div>
