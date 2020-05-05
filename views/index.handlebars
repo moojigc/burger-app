@@ -19,7 +19,10 @@
 					{{#each freshBurgers}}
 					<li class="list-group-item burger-list-item">
 						{{name}}
-						<button data-id="{{id}}" class="btn btn-danger devour-btn">Devour!</button>
+						<div>
+							<button data-id="{{id}}" class="btn btn-warning btn-sm devour-btn">Devour!</button>
+							<button data-id="{{id}}" class="btn btn-danger btn-sm delete-btn">Trash it!</button>
+						</div>
 					</li>
 					{{/each}}
 				</ul>
@@ -34,7 +37,7 @@
 					{{#each devouredBurgers}}
 					<li class="list-group-item burger-list-item">
 						{{name}}
-						<button data-id="{{id}}" class="btn btn-success regurgitate-btn">Regurgitate!</button>
+						<button data-id="{{id}}" class="btn btn-success btn-sm regurgitate-btn">Regurgitate!</button>
 					</li>
 					{{/each}}
 				</ul>

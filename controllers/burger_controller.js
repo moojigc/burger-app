@@ -62,7 +62,7 @@ router.put("/api/burger/:id", async (req, res) => {
 router.delete("/api/burger/:id", async (req, res) => {
     let myBurger = new Burger({ id: req.params.id })
     try {
-        await myBurger.dbDelete()
+        let result = await myBurger.dbDelete()
         if (result.changedRows == 0) {
             // If no rows were changed, then the ID must not exist, so 404
             return res.status(404).end();
