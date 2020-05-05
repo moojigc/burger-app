@@ -49,6 +49,5 @@ $submitBtn.on("click", async (event) => {
 });
 
 $devourBtns.on("click", updateHandler);
-$regurgitateBtns.on('click', () => alert('EW YOU THREW UP'))
 $regurgitateBtns.on("click", updateHandler);
 $deleteBtns.on("click", deleteHandler);
