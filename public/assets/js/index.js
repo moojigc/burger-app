@@ -45,7 +45,7 @@ $submitBtn.on("click", async (event) => {
     let input = $input.val(),
         inputArr = input.split(' '),
         tooLongBoolean = inputArr.map(word => {
-            if (word.split('').length > 25) return true;
+            if (word.split('').length > 35) return true;
             else return false
         }),
         tooLongFilter = tooLongBoolean.filter(b => b === true);
@@ -57,7 +57,7 @@ $submitBtn.on("click", async (event) => {
         $errorMsg.text('Sorry! No single word in the name can be longer than 25 characters.');
         return;
     } else if (!input) return;
-    
+
     $errorMsg.hide();
     
     let data = {
