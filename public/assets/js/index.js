@@ -2,9 +2,10 @@ const $submitBtn = $(".submit-btn"),
     $input = $("input"),
     $devourBtns = $(".devour-btn"),
     $deleteBtns = $(".delete-btn"),
-    $regurgitateBtns = $(".regurgitate-btn");
+    $regurgitateBtns = $(".regurgitate-btn"),
+    $errorMsg = $('.error-msg');
 
-$input.val("");
+$input.val(""); 
 
 async function post(data) {
     return await $.ajax("/api/burgers/", {
@@ -36,12 +37,31 @@ async function deleteHandler() {
     await trash(id);
     location.reload()
 }
+$input.on('keypress', () => $errorMsg.hide())
 
 $submitBtn.on("click", async (event) => {
+    $errorMsg.hide();
     event.preventDefault();
-    if (!$input.val()) return;
+    let input = $input.val(),
+        inputArr = input.split(' '),
+        tooLongBoolean = inputArr.map(word => {
+            if (word.split('').length > 25) return true;
+            else return false
+        }),
+        tooLongFilter = tooLongBoolean.filter(b => b === true);
+    console.log(inputArr);
+    console.log(tooLongBoolean);
+    console.log(tooLongFilter);
+    if (tooLongFilter.length > 0) {
+        $errorMsg.show();
+        $errorMsg.text('Sorry! No single word in the name can be longer than 25 characters.');
+        return;
+    } else if (!input) return;
+    
+    $errorMsg.hide();
+    
     let data = {
-        name: $input.val(),
+        name: input
     };
 
     await post(data);

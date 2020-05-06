@@ -14,8 +14,7 @@ app.use(express.static("public"))
 
 app.use(routes);
 
-// Start our server so that it can begin listening to client requests.
 app.listen(PORT, function(error) {
     if (error) throw error;
-    else console.log(`Listening on http://${process.env.PORT ? 'burger-app-mooj.herokuapp.com/' : 'localhost:3000'}`);
+    else console.log(`Listening on ${process.env.PORT ? 'https://burger-app-mooj.herokuapp.com/' : `localhost:${PORT}`}`);
 });
