@@ -2,9 +2,9 @@
 # Burger App
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://www.contributor-covenant.org/version/2/0/code_of_conduct/) 
 
-Developed by Moojig Battsogt. 
+A project I completed during the Full Stack Web Development Bootcamp at University of Connecticut (Stamford, CT).
 
-Contact at moojig@nyu.edu.
+Contact at contact@moojig.dev
 
 ## Description 
 
@@ -14,7 +14,7 @@ Simple app demonstrating MySQL database interactions with an Express server and 
 
 ## Link
 
-See the deployed app at [Heroku.](https://burger-app-mooj.herokuapp.com/)
+See the [deployed app.](https://burger.chimid.rocks/)
 
 ## License
 
